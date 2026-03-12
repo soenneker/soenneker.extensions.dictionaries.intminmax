@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Extensions.Dictionaries.IntMinMax.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Extensions.Dictionaries.IntMinMax\Soenneker.Extensions.Dictionaries.IntMinMax.csproj" />
     </ItemGroup>
 
     <ItemGroup>
