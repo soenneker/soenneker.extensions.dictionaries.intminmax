@@ -1,21 +1,20 @@
-﻿using Soenneker.Dtos.MinMax;
+using Soenneker.Dtos.MinMax;
 using Soenneker.Tests.Unit;
 using System.Collections.Generic;
 using System.Linq;
 using AwesomeAssertions;
-using Xunit;
 
 namespace Soenneker.Extensions.Dictionaries.IntMinMax.Tests;
 
 public sealed class DictionaryIntMinMaxExtensionTests : UnitTest
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
     }
 
-    [Fact]
+    [Test]
     public void ToAverageMinMax_with_one_should_be_equal_to_max()
     {
         var minMaxDict = AutoFaker.Generate<Dictionary<int, MinMax>>();
@@ -25,7 +24,7 @@ public sealed class DictionaryIntMinMaxExtensionTests : UnitTest
         minMaxAvg.Max.Should().Be(minMaxDict.First().Value.Max);
     }
 
-    [Fact]
+    [Test]
     public void ToAverageMinMax_with_three_should_average()
     {
         var minMaxDict = new Dictionary<int, MinMax>
