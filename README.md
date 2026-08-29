@@ -4,7 +4,7 @@
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.extensions.dictionaries.intminmax/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.extensions.dictionaries.intminmax/actions/workflows/codeql.yml)
 
 # ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Extensions.Dictionaries.IntMinMax
-A collection of helpful Dictionary int, MinMax extension methods.
+Computes one representative `MinMax` by averaging all `Min` values and all `Max` values in a dictionary.
 
 ## Installation
 
@@ -12,14 +12,20 @@ A collection of helpful Dictionary int, MinMax extension methods.
 dotnet add package Soenneker.Extensions.Dictionaries.IntMinMax
 ```
 
-## Quick start
+## Usage
 
 ```csharp
 using Soenneker.Extensions.Dictionaries.IntMinMax;
+
+var readings = new Dictionary<int, MinMax>
+{
+    [1] = new() { Min = 10m, Max = 20m },
+    [2] = new() { Min = 14m, Max = 30m }
+};
+
+MinMax average = readings.ToAverageMinMax();
+// average.Min = 12m
+// average.Max = 25m
 ```
 
-Import the namespace, then call the extension methods directly on the matching value.
-
-## Common operations
-
-- `ToAverageMinMax()` - Computes the average `MinMax.Min` and `MinMax.Max` across all values in the dictionary.
+`ToAverageMinMax(roundingDigits)` optionally rounds both averages with `Math.Round`. A null or empty dictionary returns `Min = 0` and `Max = 0`; it does not return `null` or throw.
