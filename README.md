@@ -4,10 +4,22 @@
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.extensions.dictionaries.intminmax/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.extensions.dictionaries.intminmax/actions/workflows/codeql.yml)
 
 # ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Extensions.Dictionaries.IntMinMax
-### A collection of helpful Dictionary int, MinMax extension methods
+A collection of helpful Dictionary int, MinMax extension methods.
 
 ## Installation
 
-```
+```bash
 dotnet add package Soenneker.Extensions.Dictionaries.IntMinMax
 ```
+
+## Quick start
+
+```csharp
+using Soenneker.Extensions.Dictionaries.IntMinMax;
+```
+
+Import the namespace, then call the extension methods directly on the matching value.
+
+## Common operations
+
+- `ToAverageMinMax()` - Computes the average `MinMax.Min` and `MinMax.Max` across all values in the dictionary.
