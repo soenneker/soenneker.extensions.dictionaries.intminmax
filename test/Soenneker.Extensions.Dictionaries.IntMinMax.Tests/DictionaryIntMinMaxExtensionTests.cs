@@ -51,4 +51,20 @@ public sealed class DictionaryIntMinMaxExtensionTests : UnitTest
         minMaxAvg.Max.Should().Be(averageMax);
         minMaxAvg.Min.Should().Be(averageMin);
     }
+
+    [Test]
+    public void ToAverageMinMax_empty_results_do_not_share_mutable_state()
+    {
+        var empty = new Dictionary<int, MinMax>();
+
+        MinMax first = empty.ToAverageMinMax();
+        first.Min = 42;
+        first.Max = 84;
+
+        MinMax second = empty.ToAverageMinMax();
+
+        second.Should().NotBeSameAs(first);
+        second.Min.Should().Be(0);
+        second.Max.Should().Be(0);
+    }
 }

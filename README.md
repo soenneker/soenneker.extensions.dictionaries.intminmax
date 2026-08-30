@@ -28,4 +28,4 @@ MinMax average = readings.ToAverageMinMax();
 // average.Max = 25m
 ```
 
-`ToAverageMinMax(roundingDigits)` optionally rounds both averages with `Math.Round`. A null or empty dictionary returns `Min = 0` and `Max = 0`; it does not return `null` or throw.
+`ToAverageMinMax(roundingDigits)` optionally rounds both averages with `Math.Round`. A null or empty dictionary returns a new `MinMax` with `Min = 0` and `Max = 0`; it does not return `null`, throw, or share a mutable fallback instance between calls.

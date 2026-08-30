@@ -10,9 +10,6 @@ namespace Soenneker.Extensions.Dictionaries.IntMinMax;
 /// </summary>
 public static class DictionaryIntMinMaxExtension
 {
-    // If MinMax is a class, this avoids repeated allocations for the empty case.
-    private static readonly MinMax _zero = new() { Min = 0, Max = 0 };
-
     /// <summary>
     /// Computes the average <see cref="MinMax.Min"/> and <see cref="MinMax.Max"/> across all values in the dictionary.
     /// </summary>
@@ -26,7 +23,7 @@ public static class DictionaryIntMinMaxExtension
     public static MinMax ToAverageMinMax(this Dictionary<int, MinMax>? value, int? roundingDigits = null)
     {
         if (value is null || value.Count == 0)
-            return _zero;
+            return new MinMax { Min = 0, Max = 0 };
 
         decimal min = 0m;
         decimal max = 0m;
