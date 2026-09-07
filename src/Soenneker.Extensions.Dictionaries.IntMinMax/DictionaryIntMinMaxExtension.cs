@@ -28,9 +28,9 @@ public static class DictionaryIntMinMaxExtension
         decimal min = 0m;
         decimal max = 0m;
 
-        // Iterate values only (keys unused)
-        foreach (MinMax mm in value.Values)
+        foreach (KeyValuePair<int, MinMax> entry in value)
         {
+            MinMax mm = entry.Value;
             min += mm.Min;
             max += mm.Max;
         }
