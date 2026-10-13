@@ -45,6 +45,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Dtos.MinMax" Version="4.0.379" />
+        <PackageReference Include="Soenneker.Dtos.MinMax" Version="4.0.380" />
     </ItemGroup>
 </Project>
